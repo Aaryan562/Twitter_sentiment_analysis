@@ -33,16 +33,6 @@ def getSentiment(polarityValue: int) -> str:
 
 
 def main():
-    # spark = SparkSession \
-    # .builder.appName("Spark Kafka Integration") \
-    # .master("local[*]") \
-    # .config("spark.mongodb.read.connection.uri",  
-    #         "mongodb+srv://root:eWZq8x4cKfenxRQl@cluster0.oqftjmc.mongodb.net/?retryWrites=true&w=majority/test.twittdata"
-    #         "?retryWrites=true&w=majority") \
-    # .config("spark.mongodb.write.connection.uri",
-    #         "mongodb+srv://root:eWZq8x4cKfenxRQl@cluster0.oqftjmc.mongodb.net/?retryWrites=true&w=majority/test.twittdata"
-    #         "?retryWrites=true&w=majority") \
-    # .getOrCreate()
     spark = SparkSession \
         .builder \
         .appName("TwitterSentimentAnalysis") \
@@ -53,8 +43,6 @@ def main():
         .config("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:3.0.1") \
         .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2") \
         .getOrCreate()
-    # .config("spark.jars.packages", "org.mongodb.spark:mongo-spark-connector_2.12:10.1.1") \
-    # .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.2.4") \
     spark.sparkContext.setLogLevel('WARN')
     spark.conf.set("spark.sql.streaming.forceDeleteTempCheckpointLocation", "true")
     
@@ -98,20 +86,7 @@ def main():
         .start() 
     query.awaitTermination()
     
-    # query = sentiment_tweets.writeStream.queryName("test_tweets") \
-    #         .foreachBatch(write_row_in_mongo).start()
-    # query.awaitTermination()
 
-    # sentiment_tweets.writeStream.option("checkpointLocation", "file:///c:/temp/test").toTable("myTable")
-    # sentiment_tweets.writeStream.format("memory").queryName("myTable")
-
-    # tableDf = spark.readStream.table("myTable")
-
-    # personalDetails = tableDf.select("processed_text", "subjectivity", "polarity","sentiment")
-
-    # query = sentiment_tweets.writeStream.queryName("test_tweets") \
-    #     .foreachBatch(write_row_in_mongo).start()
-    # query.awaitTermination()
 
 
 if __name__ == '__main__':
