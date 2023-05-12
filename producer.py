@@ -8,10 +8,10 @@ from json import dumps
 from kafka import KafkaProducer
 import logging
 
-access_key = "CXrMxj4ylTDFIMdOiQcqUFTkH"
-access_secret = "koNhhjENtJQMCpXhETeZzdv1eaymczbGqlAlD7rRK6Q0GcU8vr"
-consumer_key = "1535683878874230784-029CkMBpas1IHkxyVDqQdb7Gu9WGFE"
-consumer_secret = "XPAZpOEigRa9qDtSFNRE1kiVSWlqCqkQETGJ4xrTCIMJB"
+access_key = ""
+access_secret = ""
+consumer_key = ""
+consumer_secret = ""
 
 
 auth = tweepy.OAuthHandler(access_key, access_secret)   
