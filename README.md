@@ -11,7 +11,7 @@ Some of the common fields that may be present in the Twitter data obtained throu
 
 
 In this case the fields that we are using are just the tweet text, which is being further used for
-sentiment analysis. Firstly, a query is decided upon and the tweets related to those tweets are
+sentiment analysis. Firstly, a query is decided upon and the tweets related to the query are
 extracted from the Twitter API. These tweets are the data that is used throughout the project.
 The design of the data pipeline is quite simple. It consists of three main components – Fetching
 Twitter data API, streaming the data through Kafka and receiving it through Apache Spark, here
